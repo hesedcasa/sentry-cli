@@ -1,6 +1,15 @@
 import { describe, expect, it, vi } from 'vitest';
 
+import * as commandsModule from '../../../src/commands/index.js';
 import { parseArguments } from '../../../src/utils/argParser.js';
+
+vi.mock('../../../src/commands/index.js', async () => {
+  const actual = await vi.importActual<typeof commandsModule>('../../../src/commands/index.js');
+  return {
+    ...actual,
+    runCommand: vi.fn(),
+  };
+});
 
 describe('argParser', () => {
   describe('parseArguments', () => {
@@ -126,16 +135,13 @@ describe('argParser', () => {
       for (const cmd of validCommands) {
         const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
 
-        // Mock the runCommand to prevent actual execution
-        const { parseArguments: actualParseArguments } = await import('../../../src/utils/argParser.js');
-
         try {
-          await actualParseArguments([cmd]);
+          await parseArguments([cmd]);
         } catch {
-          // Expect it to attempt execution (which may fail without proper setup)
-          // The important part is that it recognizes the command
+          // Expected when mocking process.exit
         }
 
+        expect(exitSpy).toHaveBeenCalledWith(0);
         exitSpy.mockRestore();
       }
     });

@@ -56,9 +56,15 @@ src/
     └── sentry-utils.ts                    # Core Sentry utility class
 
 tests/
-└── unit/
-    └── utils/
-        └── config-loader.test.ts          # Tests for config loading
+├── unit/
+│   ├── commands/
+│   │   ├── helpers.test.ts                # Tests for command helpers
+│   │   └── runner.test.ts                 # Tests for command runner
+│   └── utils/
+│       ├── argParser.test.ts              # Tests for argument parsing
+│       └── config-loader.test.ts          # Tests for config loading
+└── integration/
+    └── sentry-client.test.ts              # Integration tests for Sentry client
 ```
 
 ### Core Components
@@ -200,13 +206,13 @@ sentry> update-issue '{"issueId":"123456789","status":"resolved"}'
 sentry> exit                                        # Exit
 
 # Headless mode (one-off commands):
-npx sentry-cli test-connection '{"profile":"production"}'
-npx sentry-cli list-project-issues '{"projectSlug":"my-project"}'
-npx sentry-cli get-issue '{"issueId":"123456789","format":"json"}'
-npx sentry-cli --commands        # List all commands
-npx sentry-cli get-issue -h      # Command-specific help
-npx sentry-cli --help            # General help
-npx sentry-cli --version         # Show version
+npx sentry-api-cli test-connection '{"profile":"production"}'
+npx sentry-api-cli list-project-issues '{"projectSlug":"my-project"}'
+npx sentry-api-cli get-issue '{"issueId":"123456789","format":"json"}'
+npx sentry-api-cli --commands        # List all commands
+npx sentry-api-cli get-issue -h      # Command-specific help
+npx sentry-api-cli --help            # General help
+npx sentry-api-cli --version         # Show version
 ```
 
 ## Code Structure & Module Responsibilities
@@ -327,9 +333,15 @@ npm run test:coverage
 
 ```
 tests/
-└── unit/
-    └── utils/
-        └── config-loader.test.ts      # Config loading and validation
+├── unit/
+│   ├── commands/
+│   │   ├── helpers.test.ts            # Command helpers tests
+│   │   └── runner.test.ts             # Command runner tests
+│   └── utils/
+│       ├── argParser.test.ts          # Argument parser tests
+│       └── config-loader.test.ts      # Config loading and validation tests
+└── integration/
+    └── sentry-client.test.ts          # Sentry client integration tests
 ```
 
 ## Important Notes

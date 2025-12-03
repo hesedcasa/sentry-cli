@@ -1,10 +1,10 @@
 {
-  "name": "sentry-cli",
+  "name": "sentry-api-cli",
   "version": "1.0.0",
   "description": "A powerful command-line interface for Sentry API interaction with support for issues, events, projects, and multiple output formats",
   "main": "dist/index.js",
   "bin": {
-    "sentry-cli": "dist/index.js"
+    "sentry-api-cli": "dist/index.js"
   },
   "type": "module",
   "scripts": {
@@ -49,11 +49,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hesedcasa/sentry-cli.git"
+    "url": "git+https://github.com/hesedcasa/sentry-api-cli.git"
   },
   "types": "./dist/index.d.ts",
   "bugs": {
-    "url": "https://github.com/hesedcasa/sentry-cli/issues"
+    "url": "https://github.com/hesedcasa/sentry-api-cli/issues"
   },
-  "homepage": "https://github.com/hesedcasa/sentry-cli#readme"
+  "homepage": "https://github.com/hesedcasa/sentry-api-cli#readme"
 }

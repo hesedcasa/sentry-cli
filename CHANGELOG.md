@@ -5,7 +5,7 @@
 
 ### 🎉 Features
 
-* initial commit ([b73531f](https://github.com/hesedcasa/sentry-cli/commit/b73531fb908e50d2f572a04729250b70c3ad47d3))
+* initial commit ([b73531f](https://github.com/hesedcasa/sentry-api-cli/commit/b73531fb908e50d2f572a04729250b70c3ad47d3))
 
 ## Changelog
 

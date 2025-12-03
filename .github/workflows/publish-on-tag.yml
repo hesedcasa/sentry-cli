@@ -3,7 +3,7 @@ name: publish-on-tag
 on:
   push:
     tags:
-      - 'sentry-cli-v*'
+      - 'sentry-api-cli-v*'
   workflow_dispatch:
     inputs:
       npm-publish:

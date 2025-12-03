@@ -1,6 +1,6 @@
 # Sentry API CLI
 
-[![npm sentry-cli package](https://img.shields.io/npm/v/sentry-cli.svg)](https://npmjs.org/package/sentry-cli)
+[![npm sentry-api-cli package](https://img.shields.io/npm/v/sentry-api-cli.svg)](https://npmjs.org/package/sentry-api-cli)
 
 A powerful command-line interface for Sentry API interaction with support for issues, events, projects, and multiple output formats.
 
@@ -26,7 +26,7 @@ A powerful command-line interface for Sentry API interaction with support for is
 ## Installation
 
 ```bash
-npm install -g sentry-cli
+npm install -g sentry-api-cli
 ```
 
 ## Configuration
@@ -97,7 +97,7 @@ defaultFormat: json
 Start the CLI and interact with Sentry through a REPL:
 
 ```bash
-npx sentry-cli
+npx sentry-api-cli
 ```
 
 Once started, you'll see the `sentry>` prompt:
@@ -114,19 +114,19 @@ Execute single commands directly:
 
 ```bash
 # Test connection
-npx sentry-cli test-connection
+npx sentry-api-cli test-connection
 
 # List project issues
-npx sentry-cli list-project-issues '{"projectSlug":"my-project"}'
+npx sentry-api-cli list-project-issues '{"projectSlug":"my-project"}'
 
 # Get issue details
-npx sentry-cli get-issue '{"issueId":"123456789"}'
+npx sentry-api-cli get-issue '{"issueId":"123456789"}'
 
 # List organization issues
-npx sentry-cli list-org-issues '{"query":"is:unresolved","limit":50}'
+npx sentry-api-cli list-org-issues '{"query":"is:unresolved","limit":50}'
 
 # Update an issue
-npx sentry-cli update-issue '{"issueId":"123456789","status":"resolved"}'
+npx sentry-api-cli update-issue '{"issueId":"123456789","status":"resolved"}'
 ```
 
 ## Available Commands
@@ -265,8 +265,8 @@ sentry> list-org-issues
 
 ```bash
 # Clone repository
-git clone https://github.com/hesedcasa/sentry-cli.git
-cd sentry-cli
+git clone https://github.com/hesedcasa/sentry-api-cli.git
+cd sentry-api-cli
 
 # Install dependencies
 npm install
@@ -300,7 +300,7 @@ npm run pre-commit          # Run format + find-deadcode
 
 ```bash
 # Start interactive mode
-npx sentry-cli
+npx sentry-api-cli
 
 # List all projects' issues
 sentry> list-org-issues
@@ -326,18 +326,18 @@ sentry> debug-source-maps {"projectSlug":"my-project"}
 ```bash
 #!/bin/bash
 # Get all unresolved issues
-npx sentry-cli list-org-issues '{"query":"is:unresolved","limit":100}' > issues.json
+npx sentry-api-cli list-org-issues '{"query":"is:unresolved","limit":100}' > issues.json
 
 # Test connection
-npx sentry-cli test-connection
+npx sentry-api-cli test-connection
 
 # Resolve multiple issues from script
 for issue_id in $(cat issue_ids.txt); do
-  npx sentry-cli update-issue "{\"issueId\":\"$issue_id\",\"status\":\"resolved\"}"
+  npx sentry-api-cli update-issue "{\"issueId\":\"$issue_id\",\"status\":\"resolved\"}"
 done
 
 # Get project events
-npx sentry-cli list-project-events '{"projectSlug":"my-project"}' > events.json
+npx sentry-api-cli list-project-events '{"projectSlug":"my-project"}' > events.json
 ```
 
 ## Troubleshooting
@@ -346,7 +346,7 @@ npx sentry-cli list-project-events '{"projectSlug":"my-project"}' > events.json
 
 ```bash
 # Test your connection
-npx sentry-cli test-connection
+npx sentry-api-cli test-connection
 
 # Common issues:
 # 1. Invalid auth token - regenerate token

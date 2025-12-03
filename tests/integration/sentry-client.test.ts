@@ -25,7 +25,7 @@ describe('sentry-client integration', () => {
 
   beforeEach(() => {
     // Create a temporary directory for test configs
-    testDir = fs.mkdtempSync(path.join(os.tmpdir(), 'sentry-cli-test-'));
+    testDir = fs.mkdtempSync(path.join(os.tmpdir(), 'sentry-api-cli-test-'));
     fs.mkdirSync(path.join(testDir, '.claude'));
 
     // Create test config

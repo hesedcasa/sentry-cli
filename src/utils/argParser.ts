@@ -55,20 +55,20 @@ Sentry CLI
 
 Usage:
 
-npx sentry-cli                   start interactive CLI
-npx sentry-cli --commands        list all available commands
-npx sentry-cli <command> -h      quick help on <command>
-npx sentry-cli <command> <arg>   run command in headless mode
+npx sentry-api-cli                   start interactive CLI
+npx sentry-api-cli --commands        list all available commands
+npx sentry-api-cli <command> -h      quick help on <command>
+npx sentry-api-cli <command> <arg>   run command in headless mode
 
 All commands:
 
 ${COMMANDS.join(', ')}
 
 Examples:
-  npx sentry-cli list-org-issues
-  npx sentry-cli list-project-issues '{"projectSlug":"my-project"}'
-  npx sentry-cli get-issue '{"issueId":"123456789"}'
-  npx sentry-cli test-connection
+  npx sentry-api-cli list-org-issues
+  npx sentry-api-cli list-project-issues '{"projectSlug":"my-project"}'
+  npx sentry-api-cli get-issue '{"issueId":"123456789"}'
+  npx sentry-api-cli test-connection
 
 `);
 };
