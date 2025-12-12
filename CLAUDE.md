@@ -50,7 +50,7 @@ src/
 │   └── constants.ts                       # Command definitions
 └── utils/
     ├── index.ts                           # Barrel export
-    ├── argParser.ts                       # Command-line argument parser
+    ├── arg-parser.ts                       # Command-line argument parser
     ├── config-loader.ts                   # YAML config file loader
     ├── sentry-client.ts                   # Sentry API wrapper functions
     └── sentry-utils.ts                    # Core Sentry utility class
@@ -61,7 +61,7 @@ tests/
 │   │   ├── helpers.test.ts                # Tests for command helpers
 │   │   └── runner.test.ts                 # Tests for command runner
 │   └── utils/
-│       ├── argParser.test.ts              # Tests for argument parsing
+│       ├── arg-parser.test.ts              # Tests for argument parsing
 │       └── config-loader.test.ts          # Tests for config loading
 └── integration/
     └── sentry-client.test.ts              # Integration tests for Sentry client
@@ -78,7 +78,7 @@ tests/
 #### CLI Module (`src/cli/`)
 
 - **wrapper class**: Main orchestrator managing:
-  - `connect()` - Loads configuration from `.claude/sentry-connector.local.md`
+  - `connect()` - Loads configuration from `.claude/sentry-config.local.md`
   - `start()` - Initiates interactive REPL with readline interface
   - `handleCommand()` - Parses and processes user commands
   - `runCommand()` - Executes Sentry commands with result formatting
@@ -103,10 +103,10 @@ tests/
 
 #### Utils Module (`src/utils/`)
 
-- `argParser.ts` - Command-line argument handling
+- `arg-parser.ts` - Command-line argument handling
   - `parseArguments(args)` - Parses CLI flags and routes execution
 - `config-loader.ts` - Configuration file management
-  - `loadConfig(projectRoot)` - Loads `.claude/sentry-connector.local.md`
+  - `loadConfig(projectRoot)` - Loads `.claude/sentry-config.local.md`
   - `getSentryClientOptions(config, profileName)` - Builds Sentry client options
   - TypeScript interfaces: `Config`, `SentryProfile`, `SentryClientOptions`
 - `sentry-client.ts` - Sentry API wrapper functions
@@ -120,7 +120,7 @@ tests/
 
 ### Configuration System
 
-The CLI loads Sentry profiles from `.claude/sentry-connector.local.md` with YAML frontmatter:
+The CLI loads Sentry profiles from `.claude/sentry-config.local.md` with YAML frontmatter:
 
 ```yaml
 ---
@@ -251,7 +251,7 @@ npx sentry-api-cli --version         # Show version
 
 ### Config Loader (`utils/config-loader.ts`)
 
-- Reads and parses `.claude/sentry-connector.local.md`
+- Reads and parses `.claude/sentry-config.local.md`
 - Extracts YAML frontmatter with Sentry profiles
 - Validates required fields for each profile (`authToken`, `organization`)
 - Provides default values for settings (`baseUrl` defaults to `https://sentry.io/api/0`)
@@ -271,7 +271,7 @@ npx sentry-api-cli --version         # Show version
 - Result formatting (JSON, TOON)
 - All 13 command implementations
 
-### Argument Parser (`utils/argParser.ts`)
+### Argument Parser (`utils/arg-parser.ts`)
 
 - CLI flag parsing (--help, --version, --commands, etc.)
 - Routing logic for different execution modes
@@ -285,7 +285,7 @@ npx sentry-api-cli --version         # Show version
 - **Client Pooling**: Reuses Sentry clients per profile for efficiency
 - **Signal Handling**: Graceful shutdown on Ctrl+C (SIGINT) and SIGTERM
 - **Error Handling**: Try-catch blocks with user-friendly error messages
-- **Configuration**: YAML frontmatter in `.claude/sentry-connector.local.md`
+- **Configuration**: YAML frontmatter in `.claude/sentry-config.local.md`
 - **HTTP Client**: Uses Axios for Sentry API requests
 
 ## Dependencies
@@ -338,7 +338,7 @@ tests/
 │   │   ├── helpers.test.ts            # Command helpers tests
 │   │   └── runner.test.ts             # Command runner tests
 │   └── utils/
-│       ├── argParser.test.ts          # Argument parser tests
+│       ├── arg-parser.test.ts          # Argument parser tests
 │       └── config-loader.test.ts      # Config loading and validation tests
 └── integration/
     └── sentry-client.test.ts          # Sentry client integration tests
@@ -346,7 +346,7 @@ tests/
 
 ## Important Notes
 
-1. **Configuration Required**: CLI requires `.claude/sentry-connector.local.md` with valid Sentry profiles
+1. **Configuration Required**: CLI requires `.claude/sentry-config.local.md` with valid Sentry profiles
 2. **ES2022 Modules**: Project uses `"type": "module"` - no CommonJS
 3. **API Authentication**: Uses Sentry auth tokens for authentication
 4. **Multi-Profile**: Supports multiple Sentry organizations (production, staging, etc.)

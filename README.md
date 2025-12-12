@@ -41,7 +41,7 @@ npm install -g sentry-api-cli
 
 ### Step 2: Create Configuration File
 
-Create a configuration file at `.claude/sentry-connector.local.md` in your project root:
+Create a configuration file at `.claude/sentry-config.local.md` in your project root:
 
 ```markdown
 ---
@@ -253,7 +253,7 @@ sentry> list-org-issues
 
 ⚠️ **Important Security Notes:**
 
-1. **Never commit** `.claude/sentry-connector.local.md` to version control
+1. **Never commit** `.claude/sentry-config.local.md` to version control
 2. Add `*.local.md` to your `.gitignore`
 3. Keep your API tokens secure and rotate them periodically
 4. Use different API tokens for different environments

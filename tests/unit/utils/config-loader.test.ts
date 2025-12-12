@@ -39,7 +39,7 @@ defaultFormat: json
 # Sentry Connection Profiles
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -67,7 +67,7 @@ defaultFormat: json
 This is just markdown content without frontmatter.
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       expect(() => loadConfig(testDir)).toThrow('Invalid configuration file format');
@@ -79,7 +79,7 @@ defaultProfile: production
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       expect(() => loadConfig(testDir)).toThrow('Configuration must include "profiles" object');
@@ -94,7 +94,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       expect(() => loadConfig(testDir)).toThrow('missing required field');
@@ -110,7 +110,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       expect(() => loadConfig(testDir)).toThrow('baseUrl must start with http:// or https://');
@@ -128,7 +128,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -145,7 +145,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -166,7 +166,7 @@ defaultFormat: ${format}
 ---
 `;
 
-        const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+        const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
         fs.writeFileSync(configPath, configContent);
 
         const config = loadConfig(testDir);
@@ -184,7 +184,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -209,7 +209,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       config = loadConfig(testDir);
@@ -276,7 +276,7 @@ defaultFormat: toon
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -298,7 +298,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       expect(() => loadConfig(testDir)).toThrow('missing required field');
@@ -314,7 +314,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       expect(() => loadConfig(testDir)).toThrow('missing required field');
@@ -331,7 +331,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -348,7 +348,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -361,7 +361,7 @@ profiles: {}
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       // Should not throw on empty profiles, but may use first profile as default
@@ -378,7 +378,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -394,7 +394,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -411,7 +411,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       expect(() => loadConfig(testDir)).toThrow();
@@ -427,7 +427,7 @@ profiles:
 ---
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);
@@ -457,7 +457,7 @@ Add your profiles above in YAML frontmatter.
 - Profile 2
 `;
 
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.writeFileSync(configPath, configContent);
 
       const config = loadConfig(testDir);

@@ -29,7 +29,7 @@ defaultProfile: test
 defaultFormat: json
 ---
 `;
-    const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+    const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
     fs.writeFileSync(configPath, configContent);
 
     // Set test directory as project root

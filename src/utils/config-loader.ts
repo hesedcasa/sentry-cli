@@ -30,18 +30,18 @@ export interface SentryClientOptions {
 }
 
 /**
- * Load Sentry connection profiles from .claude/sentry-connector.local.md
+ * Load Sentry connection profiles from .claude/sentry-config.local.md
  *
  * @param projectRoot - Project root directory
  * @returns Configuration object with profiles and settings
  */
 export function loadConfig(projectRoot: string): Config {
-  const configPath = path.join(projectRoot, '.claude', 'sentry-connector.local.md');
+  const configPath = path.join(projectRoot, '.claude', 'sentry-config.local.md');
 
   if (!fs.existsSync(configPath)) {
     throw new Error(
       `Configuration file not found at ${configPath}\n` +
-        `Please create .claude/sentry-connector.local.md with your Sentry profiles.`
+        `Please create .claude/sentry-config.local.md with your Sentry profiles.`
     );
   }
 

@@ -40,7 +40,7 @@ defaultProfile: test
 defaultFormat: json
 ---
 `;
-    const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+    const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
     fs.writeFileSync(configPath, configContent);
 
     // Set test directory as project root
@@ -210,7 +210,7 @@ defaultFormat: json
 
     it('should handle missing required config', async () => {
       // Remove config file
-      const configPath = path.join(testDir, '.claude', 'sentry-connector.local.md');
+      const configPath = path.join(testDir, '.claude', 'sentry-config.local.md');
       fs.unlinkSync(configPath);
 
       // Clear clients to force reload

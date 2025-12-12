@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import * as commandsModule from '../../../src/commands/index.js';
-import { parseArguments } from '../../../src/utils/argParser.js';
+import { parseArguments } from '../../../src/utils/arg-parser.js';
 
 vi.mock('../../../src/commands/index.js', async () => {
   const actual = await vi.importActual<typeof commandsModule>('../../../src/commands/index.js');
@@ -11,7 +11,7 @@ vi.mock('../../../src/commands/index.js', async () => {
   };
 });
 
-describe('argParser', () => {
+describe('arg-parser', () => {
   describe('parseArguments', () => {
     it('should return false for empty arguments (continue to interactive mode)', async () => {
       const result = await parseArguments([]);
